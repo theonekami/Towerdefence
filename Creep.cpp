@@ -32,7 +32,7 @@ void Creep::Draw(RenderWindow &w)
     w.draw(body);
 }
 
-void Creep::update(float t)
+void Creep::update(float t,RenderWindow &w)
 {
     time+=t;
     if (time>=speed&&path!=nullptr)
@@ -61,5 +61,9 @@ void Creep::update(float t)
                     path=nullptr;
                     break;
         }
+    body.setPosition(pos);
+
     }
+    cout<<pos.x<<" "<<pos.y<<endl;
+    w.draw(body);
 }

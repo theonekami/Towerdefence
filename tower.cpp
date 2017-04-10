@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 using namespace std;
 #include <SFML/Graphics.hpp>
 using namespace sf;
@@ -19,18 +20,17 @@ tower::~tower()
 
 }
 
-void tower::tower_place(RenderWindow &w,Texture &t)
+void tower::tower_place(RenderWindow &w)
 {
-    body.setTexture(t);
-    body.setPosition(pos);
     w.draw(body);
 }
-bool tower::tower_hand(RenderWindow &w, Texture t)
+bool tower::tower_hand(RenderWindow &w, Texture ta)
 {
+    t=ta;
     body.setTexture(t);
     Vector2i mo=Mouse::getPosition(w);
     Event e;
-    if (w.pollEvent(e)&& (e.type==Event::MouseButtonPressed && e.mouseButton.button==Mouse::Left))
+    if (w.waitEvent(e)&& (e.type==Event::MouseButtonPressed && e.mouseButton.button==Mouse::Left))
     {
         in_hand=true;
         w.draw(body);

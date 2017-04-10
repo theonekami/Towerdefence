@@ -11,11 +11,12 @@ class tower
     Sprite body;
     Vector2f pos;
     bool in_hand;
+    Texture t;
 
     public:
         tower();
         virtual ~tower();
-        void tower_place(RenderWindow &w,Texture &t);
+        void tower_place(RenderWindow &w);
         bool tower_hand(RenderWindow &w,Texture t);
 
     protected:

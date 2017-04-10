@@ -20,7 +20,7 @@ class Creep
         Creep(int a[]);
         virtual ~Creep();
         void Draw(RenderWindow &w);
-        void update(float t);
+        void update(float t,RenderWindow &w);
 };
 
 #endif // CREEP_H
